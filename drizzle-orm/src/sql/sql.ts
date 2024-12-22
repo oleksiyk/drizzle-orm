@@ -75,7 +75,8 @@ function mergeQueries(queries: QueryWithTypings[]): QueryWithTypings {
 	const result: QueryWithTypings = { sql: '', params: [] };
 	for (const query of queries) {
 		result.sql += query.sql;
-		result.params.push(...query.params);
+		// result.params.push(...query.params);
+		result.params = result.params.concat(query.params)
 		if (query.typings?.length) {
 			if (!result.typings) {
 				result.typings = [];
